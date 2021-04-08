@@ -2,8 +2,8 @@ import express from "express";
 import bodyParser from "body-parser";
 import Telegraf, { Stage, Telegram } from "telegraf";
 import session from "telegraf/session";
-import { init, destroy, getAllTradingPairs } from "./commands";
-import { initWizard, destroyWizard, getAllTradinPairsWizard } from "./wizards";
+import { init, destroy, getAllTradingPairs, getUserBalance } from "./commands";
+import { initWizard, destroyWizard, getAllTradinPairsWizard, getUserBalanceWizard } from "./wizards";
 import { BOT_PORT, BINANCE_BOT_TOKEN } from "./utils";
 
 const bot = new Telegraf(BINANCE_BOT_TOKEN);
@@ -17,7 +17,7 @@ telegram.getUpdates(0, 100, -1).then((updates) => {
   }
 });
 
-const stage = new Stage([initWizard, destroyWizard, getAllTradinPairsWizard]);
+const stage = new Stage([initWizard, destroyWizard, getAllTradinPairsWizard, getUserBalanceWizard]);
 
 bot.use(session());
 bot.use(stage.middleware());
@@ -31,9 +31,9 @@ bot.command("start", (ctx) => ctx.replyWithMarkdown("Hello ✊\nPlease use comma
 bot.command("init", init);
 bot.command("destroy", destroy);
 bot.command("getAllTradingPairs", getAllTradingPairs);
+bot.command("getUserBalance", getUserBalance);
 // bot.command("createAlert", createAlert);
 // bot.command("alertPull", alertPull);
-// bot.command("getUserBalance", getUserBalance);
 
 bot.launch();
 
@@ -42,9 +42,9 @@ For set commands list in bot
     init - initialize alert system;
     destroy - destroy alert system;
     getAllTradingPairs - get all trading pairs
+    getUserBalance - get user balance
     createAlert -
     alertPull -
-    getUserBalance -
  */
 
 app.listen(BOT_PORT, () => {

@@ -5,4 +5,6 @@ export const texts = {
 {{unique token of alert system}}`,
   getAllTradinPairs: `Enter you unique token:\n
 {{unique token of alert system}}`,
+  getUserBalance: `Enter you unique token:\n
+{{unique token of alert system}}`,
 };

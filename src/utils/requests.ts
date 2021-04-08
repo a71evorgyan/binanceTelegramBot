@@ -26,3 +26,6 @@ export const getAllTradinPairsRequest = async (token: string): Promise<any> => {
   return sendRequest(Method.GET, "/getAllTradingPairs", { params: { token } });
 };
 
+export const getUserBalanceRequest = async (token: string): Promise<any> => {
+  return sendRequest(Method.GET, "/getUserBalance", { params: { token } });
+};
