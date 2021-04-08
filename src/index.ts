@@ -39,12 +39,12 @@ bot.launch();
 
 /*
 For set commands list in bot
-    init - initialize alert system;
-    destroy - destroy alert system;
-    getAllTradingPairs - get all trading pairs
-    getUserBalance - get user balance
-    createAlert -
-    alertPull -
+    init - initialize alert system
+    destroy - destroy alert system
+    getalltradingpairs - get all trading pairs
+    getuserbalance - get user balance
+    createalert - create custom alert
+    alertpull - real time binance data
  */
 
 app.listen(BOT_PORT, () => {
